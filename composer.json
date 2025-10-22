@@ -1,0 +1,32 @@
+{
+    "name": "serenus/serenus-laravel-modular-auth",
+    "description": "Modul Otentikasi dan Otorisasi yang dapat digunakan kembali untuk Laravel.",
+    "type": "laravel-module", 
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aswal",
+            "email": "aswal.awaludin@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.2",
+        "laravel/sanctum": "^4.0",
+        "spatie/laravel-permission": "^6.0",
+        "laravel/socialite": "^5.0",
+        "illuminate/support": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Serenus\\ModularAuth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Serenus\\ModularAuth\\AuthServiceProvider"
+            ]
+        }
+    }
+}
