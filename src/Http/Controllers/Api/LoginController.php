@@ -2,10 +2,10 @@
 
 namespace Serenus\ModularAuth\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Serenus\ModularAuth\Http\Requests\LoginRequest
+use Serenus\ModularAuth\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
