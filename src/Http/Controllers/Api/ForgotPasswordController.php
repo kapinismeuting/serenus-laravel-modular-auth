@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace Serenus\ModularAuth\Http\Controllers\Api;
 

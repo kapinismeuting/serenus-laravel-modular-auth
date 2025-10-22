@@ -18,7 +18,7 @@ class LoginController extends Controller
 
             return response()->json([
                 'message' => 'Kredensial yang diberikan tidak cocok dengan catatan kami.'
-            ], 401
+            ], 401);
         }
 
         $user = $request->user();
