@@ -1,5 +1,4 @@
 <?php
-// Modules/Auth/Http/Requests/RegisterRequest.php
 
 namespace Modules\Auth\Http\Requests;
 
@@ -13,7 +12,7 @@ class RegisterRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // Izinkan semua orang untuk mengakses request registrasi
+        return true;
     }
 
     /**
@@ -23,8 +22,8 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], // Harus unik di tabel 'users'
-            'password' => ['required', 'confirmed', Password::defaults()], // 'confirmed' membutuhkan field 'password_confirmation'
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Password::defaults()],
         ];
     }
 }

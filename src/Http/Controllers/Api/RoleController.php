@@ -1,5 +1,4 @@
 <?php
-// Modules/Auth/Http/Controllers/Api/RoleController.php
 
 namespace Serenus\ModularAuth\Http\Controllers\Api;
 
@@ -16,7 +15,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::with('permissions')->get(); // Muat juga permissions terkait
+        $roles = Role::with('permissions')->get();
         return response()->json($roles);
     }
 
@@ -67,7 +66,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        // Mencegah penghapusan role administrator
+        
         if ($role->name === 'administrator') {
             return response()->json(['message' => 'Role Administrator tidak dapat dihapus.'], 403);
         }
@@ -84,7 +83,7 @@ class RoleController extends Controller
     {
         $request->validate([
             'permissions' => 'required|array',
-            'permissions.*' => 'string|exists:permissions,name', // Pastikan semua permission ada
+            'permissions.*' => 'string|exists:permissions,name', 
         ]);
 
         $permissions = Permission::whereIn('name', $request->permissions)->get();

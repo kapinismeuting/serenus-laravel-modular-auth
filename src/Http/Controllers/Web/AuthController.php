@@ -1,7 +1,6 @@
 <?php
-// Modules/Auth/Http/Controllers/Web/AuthController.php
 
-namespace Modules\Auth\Http\Controllers\Web; // <-- Namespace Web
+namespace Modules\Auth\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -19,7 +18,6 @@ class AuthController extends Controller
 
     public function redirectToGoogle()
     {
-        // PENTING: JANGAN gunakan stateless()
         return Socialite::driver('google')->redirect();
     }
 
@@ -28,14 +26,12 @@ class AuthController extends Controller
         try {
             $googleUser = Socialite::driver('google')->user();
         } catch (Exception $e) {
-            // Jika gagal, redirect ke halaman login Livewire/Web
             return redirect('/login')->withErrors(['google' => 'Gagal otentikasi Google.']);
         }
 
         $user = User::where('email', $googleUser->getEmail())->first();
 
         if (!$user) {
-            // Registrasi User Baru
             $user = User::create([
                 'name' => $googleUser->getName(),
                 'email' => $googleUser->getEmail(),
@@ -45,10 +41,8 @@ class AuthController extends Controller
             $user->assignRole('user');
         }
 
-        // Login berbasis Sesi
         Auth::login($user);
 
-        // Redirect ke URL tujuan (misalnya dashboard Livewire)
         return redirect()->intended('/dashboard');
     }
 
@@ -63,6 +57,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/'); // Redirect ke halaman welcome
+        return redirect('/');
     }
 }

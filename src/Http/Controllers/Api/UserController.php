@@ -1,5 +1,5 @@
 <?php
-// Modules/Auth/Http/Controllers/Api/UserController.php
+
 
 namespace Serenus\ModularAuth\Http\Controllers\Api;
 
@@ -13,9 +13,6 @@ class UserController extends Controller
      */
     public function show(Request $request)
     {
-        // Karena route ini berada di bawah middleware 'auth:sanctum',
-        // objek $request akan memiliki user yang sudah terotentikasi.
-
         return response()->json([
             'message' => 'Detail pengguna berhasil diambil.',
             'user' => $request->user(),

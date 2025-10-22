@@ -1,5 +1,4 @@
 <?php
-// Modules/Auth/AuthServiceProvider.php
 
 namespace Serenus\ModularAuth;
 
@@ -22,13 +21,10 @@ class AuthServiceProvider extends ServiceProvider
      * Bootstrapping layanan modul.
      */
     public function boot(): void
-    {
-        // Panggil metode untuk memuat route
+    {    
         $this->mapApiRoutes();
         $this->mapWebRoutes();
 
-        // Terapkan Gate untuk Administrator (Wajib!)
-        // Ini memastikan Role 'administrator' dapat melewati semua pengecekan Gate.
         Gate::before(function (User $user, string $ability) {
             if ($user->hasRole('administrator')) {
                 return true;
@@ -41,10 +37,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api') // Prefix URL: /api/...
-            ->middleware('api') // Gunakan middleware API
-            ->namespace('Serenus\ModularAuth\Http\Controllers\Api') // Namespace Controller
-            ->group(__DIR__ . '/Routes/api.php'); // Lokasi file route kita
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace('Serenus\ModularAuth\Http\Controllers\Api')
+            ->group(__DIR__ . '/Routes/api.php');
     }
 
     /**
@@ -52,8 +48,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web') // Gunakan middleware Web
-            ->namespace('Serenus\ModularAuth\Http\Controllers\Web') // Namespace Controller Web
-            ->group(__DIR__ . '/Routes/web.php'); // Lokasi file route kita
+        Route::middleware('web')
+            ->namespace('Serenus\ModularAuth\Http\Controllers\Web')
+            ->group(__DIR__ . '/Routes/web.php');
     }
 }

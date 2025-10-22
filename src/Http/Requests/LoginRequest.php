@@ -12,7 +12,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // Izinkan semua orang untuk mengakses request login
+        return true;
     }
 
     /**

@@ -21,7 +21,6 @@
         "psr-4": {
             "Serenus\\ModularAuth\\": "src/"
         },
-        // Tambahkan ini agar file seeder/factory bisa diakses
         "classmap": ["src/Database/Seeders"]
     },
     "extra": {
