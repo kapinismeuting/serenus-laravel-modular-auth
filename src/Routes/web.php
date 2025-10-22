@@ -1,8 +1,7 @@
 <?php
-// Modules/Auth/Routes/web.php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Auth\Http\Controllers\Web\AuthController;
+use Serenus\ModularAuth\Http\Controllers\Web\AuthController;
 
 // Jika Anda menggunakan Livewire Components,
 // Anda bisa membuat route ini langsung ke component

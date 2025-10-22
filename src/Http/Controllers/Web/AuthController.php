@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Http\Controllers\Web;
+namespace Serenus\ModularAuth\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;

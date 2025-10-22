@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Auth\Http\Controllers\Api\RoleController;
-use Modules\Auth\Http\Controllers\Api\UserController;
-use Modules\Auth\Http\Controllers\Api\LoginController;
-use Modules\Auth\Http\Controllers\Api\RegisterController;
-use Modules\Auth\Http\Controllers\Api\SocialiteController;
-use Modules\Auth\Http\Controllers\Api\PermissionController;
-use Modules\Auth\Http\Controllers\Api\UserManagerController;
-use Modules\Auth\Http\Controllers\Api\ForgotPasswordController;
+use Serenus\ModularAuth\Http\Controllers\Api\RoleController;
+use Serenus\ModularAuth\Http\Controllers\Api\UserController;
+use Serenus\ModularAuth\Http\Controllers\Api\LoginController;
+use Serenus\ModularAuth\Http\Controllers\Api\RegisterController;
+use Serenus\ModularAuth\Http\Controllers\Api\SocialiteController;
+use Serenus\ModularAuth\Http\Controllers\Api\PermissionController;
+use Serenus\ModularAuth\Http\Controllers\Api\UserManagerController;
+use Serenus\ModularAuth\Http\Controllers\Api\ForgotPasswordController;
 
 Route::middleware('verify.client')->group(function () {
     Route::post('/register', [RegisterController::class, 'register']);
